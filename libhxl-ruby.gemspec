@@ -12,11 +12,10 @@ Gem::Specification.new do |s|
                    "lib/libhxl-ruby/hxl_row.rb",
                    "lib/libhxl-ruby/hxl_table_spec.rb",
                    "lib/libhxl-ruby/hxl_format_error.rb",
-                   "lib/libhxl-ruby/value.rb",
+                   "lib/libhxl-ruby/hxl_value.rb",
                   ]
 
-  s.add_development_dependency "rspec"
-  s.add_development_dependency "pry"
+  s.add_development_dependency "rspec", '~> 3.1'
   s.homepage    =
     'http://rubygems.org/gems/libhxl-ruby.rb'
   s.license       = 'MIT'
