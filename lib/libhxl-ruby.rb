@@ -1,7 +1,11 @@
 class HXLReader
 
-  def initialize
-
+  def self.read(path)
+    rows = []
+    self.foreach(path) do |row|
+      rows.push row
+    end
+    rows
   end
 
   def self.foreach(path, &block)

@@ -40,6 +40,18 @@ describe HXLReader do
     expect(i).to eq(EXPECTED_ROW_COUNT)
   end
 
+  it "reads a basic CSV file" do
+    output = HXLReader.read(SAMPLE_FILE)
+
+    expect(output.length).to eq(EXPECTED_ROW_COUNT)
+
+    EXPECTED_CONTENT.each_with_index do |arr, i|
+      arr.each_with_index do |value, j|
+        expect(output[i][j].value).to eq(value)
+      end
+    end
+  end
+
   it "raises hxlformaterror exception" do
     expect {
       HXLReader.foreach(SAMPLE_MALFORMATTED_FILE) { |row| }
