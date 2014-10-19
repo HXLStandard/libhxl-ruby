@@ -7,9 +7,14 @@ Gem::Specification.new do |s|
   s.authors     = ["Ben Rudolph"]
   s.email       = 'rudolphben@gmail.com'
   s.files       = ["lib/libhxl-ruby.rb",
-                   "lib/libhxl-ruby/parser.rb"]
+                   "lib/libhxl-ruby/hxl_column.rb",
+                   "lib/libhxl-ruby/hxl_col_spec.rb",
+                   "lib/libhxl-ruby/hxl_row.rb",
+                   "lib/libhxl-ruby/hxl_table_spec.rb",
+                  ]
 
   s.add_development_dependency "rspec"
+  s.add_development_dependency "pry"
   s.homepage    =
     'http://rubygems.org/gems/libhxl-ruby.rb'
   s.license       = 'MIT'
