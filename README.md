@@ -1,6 +1,8 @@
 libhxl-ruby
 =============
 
+[![Build Status](https://travis-ci.org/HXLStandard/libhxl-ruby.svg)](https://travis-ci.org/HXLStandard/libhxl-ruby)
+
 Ruby support library for the Humanitarian Exchange Language (HXL) data standard.
 
 # Installation
