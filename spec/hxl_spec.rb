@@ -26,9 +26,8 @@ describe HXL do
 
       row.each do |key, value|
 
-        expect(value.column.hxl_tag).to eq(EXPECTED_TAGS[j])
         expect(key).to eq(EXPECTED_TAGS[j])
-        expect(value.value).to eq(EXPECTED_CONTENT[i][j])
+        expect(value).to eq(EXPECTED_CONTENT[i][j])
 
         j += 1
       end
@@ -47,7 +46,7 @@ describe HXL do
 
     EXPECTED_CONTENT.each_with_index do |arr, i|
       arr.each_with_index do |value, j|
-        expect(output[i][j].value).to eq(value)
+        expect(output[i][j]).to eq(value)
       end
     end
   end

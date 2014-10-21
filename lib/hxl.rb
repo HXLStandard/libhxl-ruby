@@ -76,16 +76,10 @@ class HXL
           col_num += 1
           raw_position = table_spec.get_raw_position(disaggregation_position)
 
-          hxl_fields.push HXLValue.new(table_spec.col_specs[raw_position].fixed_column,
-                                table_spec.col_specs[raw_position].fixed_value,
-                                col_num,
-                                source_col_number)
+          hxl_fields.push table_spec.col_specs[raw_position].fixed_value
 
           col_num += 1
-          hxl_fields.push HXLValue.new(table_spec.col_specs[raw_position].column,
-                                row[raw_position],
-                                col_num,
-                                source_col_number)
+          hxl_fields.push row[raw_position]
 
           seen_fixed = true
           disaggregation_position += 1
@@ -94,11 +88,7 @@ class HXL
       else
         # Regular column
         col_num += 1
-        hxl_fields.push HXLValue.new(table_spec.col_specs[source_col_number].column,
-                              value,
-                              col_num,
-                              source_col_number)
-
+        hxl_fields.push value
 
       end
     end
@@ -192,6 +182,5 @@ end
 require 'hxl/hxl_format_error'
 require 'hxl/hxl_table_spec'
 require 'hxl/hxl_row'
-require 'hxl/hxl_value'
 require 'hxl/hxl_column'
 require 'hxl/hxl_col_spec'

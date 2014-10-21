@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
                    "lib/hxl/hxl_row.rb",
                    "lib/hxl/hxl_table_spec.rb",
                    "lib/hxl/hxl_format_error.rb",
-                   "lib/hxl/hxl_value.rb",
                   ]
 
   s.add_development_dependency "rspec", '~> 3.1'
