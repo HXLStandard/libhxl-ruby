@@ -17,7 +17,7 @@ require 'hxl'
 HXL.foreach('path/to/csv').foreach do |row|
   p "Row " + str(row.row_number)
   row.each do |key, value|
-    p "#{key} = #{value.value}"
+    p "#{key} = #{value}"
   end
 end
 ```
