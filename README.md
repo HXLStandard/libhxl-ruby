@@ -5,16 +5,16 @@ Ruby support library for the Humanitarian Exchange Language (HXL) data standard.
 
 # Installation
 
-`gem install libhxl-ruby`
+`gem install hxl`
 
 # Usage
 
 Read a HXL file from a csv, row by row:
 
 ```
-require 'libhxl-ruby'
+require 'hxl'
 
-HXLReader.foreach('path/to/csv').foreach do |row|
+HXL.foreach('path/to/csv').foreach do |row|
   p "Row " + str(row.row_number)
   row.each do |key, value|
     p "#{key} = #{value.value}"

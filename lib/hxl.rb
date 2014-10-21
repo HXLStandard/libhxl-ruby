@@ -1,4 +1,4 @@
-class HXLReader
+class HXL
 
   def self.read(path)
     rows = []

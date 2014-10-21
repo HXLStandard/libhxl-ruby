@@ -1,4 +1,4 @@
-class HXLReader::HXLColSpec
+class HXL::HXLColSpec
 
   attr_reader :fixed_column, :source_col_number, :column
   attr_accessor :fixed_value

@@ -1,4 +1,4 @@
-class HXLReader::HXLTableSpec
+class HXL::HXLTableSpec
 
   attr_reader :col_specs
 

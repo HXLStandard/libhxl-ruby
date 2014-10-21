@@ -1,4 +1,4 @@
-class HXLReader::HXLValue
+class HXL::HXLValue
   # A single HXL value at the intersection of a row and column
   attr_reader :column, :value, :col_num, :source_col_num
 

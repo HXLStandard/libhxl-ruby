@@ -1,2 +1,2 @@
-class HXLReader::HXLFormatError < StandardError
+class HXL::HXLFormatError < StandardError
 end

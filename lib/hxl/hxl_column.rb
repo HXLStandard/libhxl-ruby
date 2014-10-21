@@ -1,4 +1,4 @@
-class HXLReader::HXLColumn
+class HXL::HXLColumn
 
   attr_reader :hxl_tag, :language_code, :header_text
 

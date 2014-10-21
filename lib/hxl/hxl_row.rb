@@ -1,6 +1,6 @@
 require 'csv'
 
-class HXLReader::HXLRow < CSV::Row
+class HXL::HXLRow < CSV::Row
   # An iterable row of HXL value objects
 
   attr_reader :row_number, :source_row_number

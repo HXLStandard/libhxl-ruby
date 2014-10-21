@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe HXLReader do
+describe HXL do
 
   SAMPLE_FILE = 'spec/sample-data/sample.csv'
   SAMPLE_MALFORMATTED_FILE = 'spec/sample-data/sample_bad.csv'
@@ -20,7 +20,7 @@ describe HXLReader do
 
   it "parses a basic CSV file" do
     i = 0
-    HXLReader.foreach(SAMPLE_FILE) do |row|
+    HXL.foreach(SAMPLE_FILE) do |row|
       j = 0
       expect(row.length).to eq(EXPECTED_TAGS.length)
 
@@ -41,7 +41,7 @@ describe HXLReader do
   end
 
   it "reads a basic CSV file" do
-    output = HXLReader.read(SAMPLE_FILE)
+    output = HXL.read(SAMPLE_FILE)
 
     expect(output.length).to eq(EXPECTED_ROW_COUNT)
 
@@ -54,15 +54,15 @@ describe HXLReader do
 
   it "raises hxlformaterror exception" do
     expect {
-      HXLReader.foreach(SAMPLE_MALFORMATTED_FILE) { |row| }
-    }.to raise_error(HXLReader::HXLFormatError)
+      HXL.foreach(SAMPLE_MALFORMATTED_FILE) { |row| }
+    }.to raise_error(HXL::HXLFormatError)
 
   end
 
   it "parses a basic hxl tag" do
     tag = '#Sector'
 
-    spec = HXLReader.parse_hashtag(0, tag)
+    spec = HXL.parse_hashtag(0, tag)
 
     expect(spec.source_col_number).to eq(0)
     expect(spec.column.hxl_tag).to eq(tag)
@@ -75,7 +75,7 @@ describe HXLReader do
     ln = 'fr'
     tag = "#{hash}/#{ln}"
 
-    spec = HXLReader.parse_hashtag(1, tag)
+    spec = HXL.parse_hashtag(1, tag)
 
     expect(spec.source_col_number).to eq(1)
     expect(spec.column.hxl_tag).to eq(hash)
@@ -89,7 +89,7 @@ describe HXLReader do
     ln = 'fr'
     tag = "#{hash}/#{ln} + #{hash2}/#{ln}"
 
-    spec = HXLReader.parse_hashtag(1, tag)
+    spec = HXL.parse_hashtag(1, tag)
 
     expect(spec.source_col_number).to eq(1)
 
@@ -104,7 +104,7 @@ describe HXLReader do
   it "should not parse malformatted hxl tag" do
     tag = '#sec.tor'
 
-    spec = HXLReader.parse_hashtag(0, tag)
+    spec = HXL.parse_hashtag(0, tag)
 
     expect(spec).to be_nil
   end
@@ -113,7 +113,7 @@ describe HXLReader do
     prev_row = ['Sector', 'Injured', 'Weird Column']
     row = ['#sector', '#time_period + #injured_num', '']
 
-    table_spec, hashtag_row = HXLReader.parse_hashtag_row row, prev_row
+    table_spec, hashtag_row = HXL.parse_hashtag_row row, prev_row
 
     expect(table_spec.col_specs.length).to eq(row.length)
     expect(table_spec.get_disaggregation_count).to eq(1)
@@ -123,14 +123,14 @@ describe HXLReader do
     prev_row = nil
     row = ['Sector', 'Injured', 'Weird Column']
 
-    table_spec, hashtag_row = HXLReader.parse_hashtag_row row, prev_row
+    table_spec, hashtag_row = HXL.parse_hashtag_row row, prev_row
 
     expect(table_spec).to be_nil
 
     row = ['Who', 'What', 'Why', 'There']
     row = ['Sector', 'Injured', 'Weird Column']
 
-    table_spec, hashtag_row = HXLReader.parse_hashtag_row row, prev_row
+    table_spec, hashtag_row = HXL.parse_hashtag_row row, prev_row
 
     expect(table_spec).to be_nil
   end
