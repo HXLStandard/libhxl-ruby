@@ -189,9 +189,9 @@ class HXLReader
 
 end
 
-require 'libhxl-ruby/hxl_format_error'
-require 'libhxl-ruby/hxl_table_spec'
-require 'libhxl-ruby/hxl_row'
-require 'libhxl-ruby/hxl_value'
-require 'libhxl-ruby/hxl_column'
-require 'libhxl-ruby/hxl_col_spec'
+require 'hxl/hxl_format_error'
+require 'hxl/hxl_table_spec'
+require 'hxl/hxl_row'
+require 'hxl/hxl_value'
+require 'hxl/hxl_column'
+require 'hxl/hxl_col_spec'

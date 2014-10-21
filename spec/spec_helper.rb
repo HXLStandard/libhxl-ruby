@@ -1,7 +1,7 @@
 require 'bundler/setup'
 Bundler.setup
 
-require 'libhxl-ruby'
+require 'hxl'
 
 RSpec.configure do |config|
   # some (optional) config here
